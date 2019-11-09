@@ -13,6 +13,7 @@ class Category extends StatelessWidget {
       color: Colors.red,
       child: Container(
         height: 100,
+        padding: EdgeInsets.all(16),
         child: InkWell(
           highlightColor: Colors.amber,
           onTap: (){
