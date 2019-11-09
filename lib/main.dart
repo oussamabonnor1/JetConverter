@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:unit_convertor/Category.dart';
 
 class JetConverter extends StatelessWidget {
+  @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        color: Colors.blueAccent,
-        height: 500,
-        width: 400,
+        color: Colors.blueGrey,
         child: Center(
-          child: Text(
-            "JetConverter Up and Running!",
-            style: TextStyle(fontSize: 40),
-            textAlign: TextAlign.center,
-          ),
+          child: Category(Icons.add,"hello", Colors.white),
         ),
       ),
     );
