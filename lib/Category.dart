@@ -10,21 +10,27 @@ class Category extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.red,
+      color: Colors.white,
       child: Container(
         height: 100,
         padding: EdgeInsets.all(16),
         child: InkWell(
           highlightColor: Colors.amber,
-          onTap: (){
+          onTap: () {
             print("I was tapped!");
           },
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Icon(icon, size: 60, color: color),
-              Text(
-                text,
-                style: TextStyle(fontSize: 24, color: color),
+              Padding(
+                padding: EdgeInsets.all(8),
+                child: Icon(icon, size: 60, color: color),
+              ),
+              Center(
+                child: Text(
+                  text,
+                  style: TextStyle(color: color, fontSize: 24),
+                ),
               ),
             ],
           ),
