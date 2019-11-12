@@ -8,6 +8,7 @@ class JetConverter extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.blueGrey,
           title: Text("JetConverte"),
         ),
         body: CategoryActivity(),

@@ -20,8 +20,9 @@ class CategoryActivity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final categories = <Category>[];
-    for(int i = 0; i < 4; i++){
-      categories.add(Category(Icons.print, categoryNames[i],categoryColors[i]));
+    for (int i = 0; i < 4; i++) {
+      categories.add(Category(
+          Icons.print, categoryNames[i], Color(0xFF485D67), Colors.white));
     }
 
     return Scaffold(
@@ -30,9 +31,13 @@ class CategoryActivity extends StatelessWidget {
   }
 
   Widget categoryList(List<Widget> categories) {
-    return ListView.builder(
-      itemBuilder: (BuildContext context, int index) => categories[index],
-      itemCount: categories.length,
+    return Container(
+      color: Colors.blueGrey,
+      padding: EdgeInsets.all(12),
+      child: ListView.builder(
+        itemBuilder: (BuildContext context, int index) => categories[index],
+        itemCount: categories.length,
+      ),
     );
   }
 
