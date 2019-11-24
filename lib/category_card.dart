@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:unit_convertor/category.dart';
 
-class Category extends StatelessWidget {
-  final String text;
-  final IconData icon;
-  final Color backgroundColor;
-  final Color textColor;
+class CategoryCard extends StatefulWidget {
 
-  Category(this.icon, this.text, this.backgroundColor, this.textColor);
+  Category category;
+
+  CategoryCard({this.category});
 
   @override
+  _CategoryCardState createState() => _CategoryCardState();
+}
+
+class _CategoryCardState extends State<CategoryCard> {
+  @override
   Widget build(BuildContext context) {
-    return Material(
-      color: backgroundColor,
-      borderRadius: BorderRadius.circular(10),
+    return Card(
+      color: widget.backgroundColor,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: Container(
         height: 100,
         padding: EdgeInsets.all(16),
@@ -27,12 +31,12 @@ class Category extends StatelessWidget {
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.all(8),
-                child: Icon(icon, size: 60, color: textColor),
+                child: Icon(widget.category.icon, size: 60, color: widget.textColor),
               ),
               Center(
                 child: Text(
-                  text,
-                  style: TextStyle(color: textColor, fontSize: 24),
+                  widget.text,
+                  style: TextStyle(color: widget.textColor, fontSize: 24),
                 ),
               ),
             ],

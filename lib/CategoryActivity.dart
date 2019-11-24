@@ -1,14 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:unit_convertor/Category.dart';
+import 'package:unit_convertor/category_card.dart';
 
 class CategoryActivity extends StatelessWidget {
-  static const categoryNames = <String>[
+  List categoryNames = <String>[
     "Item 1",
     "Item 2",
     "Item 3",
     "Item 4",
   ];
+
+  List<CategoryCard> categories = <CategoryCard>[];
 
   List<Color> categoryColors = <Color>[
     Colors.amber,
@@ -17,29 +19,42 @@ class CategoryActivity extends StatelessWidget {
     Colors.lightBlue,
   ];
 
+  Color backgroundColor = Color(0xFF141414);
+
   @override
   Widget build(BuildContext context) {
-    final categories = <Category>[];
     for (int i = 0; i < 4; i++) {
-      categories.add(Category(
+      categories.add(CategoryCard(
           Icons.print, categoryNames[i], Color(0xFF485D67), Colors.white));
     }
 
     return Scaffold(
-      body: categoryList(categories),
+      appBar: AppBar(
+        backgroundColor: backgroundColor,
+        elevation: 0,
+        centerTitle: true,
+        title: Text(
+          "JetConverte",
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
+      body: categoryList(),
     );
   }
 
-  Widget categoryList(List<Widget> categories) {
+  Widget categoryList() {
     return Container(
       color: Colors.blueGrey,
       padding: EdgeInsets.all(12),
-      child: ListView.builder(
-        itemBuilder: (BuildContext context, int index) => categories[index],
-        itemCount: categories.length,
+      child: ListView(
+        children: <Widget>[
+          categories.map((category) => CategoryCard(course: quote, delete: (){
+            setState(() {
+              quotes.remove(quote);
+            });
+          })).toList(),
+        ],
       ),
     );
   }
-
-  CategoryActivity();
 }
