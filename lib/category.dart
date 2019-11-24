@@ -6,5 +6,5 @@ class Category{
   Color backgroundColor;
   Color textColor;
 
-  Category({this.icon, this.text, this.backgroundColor, this.textColor});
+  Category(this.icon, this.text, this.backgroundColor, this.textColor);
 }

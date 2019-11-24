@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:unit_convertor/category.dart';
 import 'package:unit_convertor/category_card.dart';
 
 class CategoryActivity extends StatelessWidget {
@@ -10,7 +11,7 @@ class CategoryActivity extends StatelessWidget {
     "Item 4",
   ];
 
-  List<CategoryCard> categories = <CategoryCard>[];
+  List<Category> categories = [];
 
   List<Color> categoryColors = <Color>[
     Colors.amber,
@@ -24,8 +25,7 @@ class CategoryActivity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     for (int i = 0; i < 4; i++) {
-      categories.add(CategoryCard(
-          Icons.print, categoryNames[i], Color(0xFF485D67), Colors.white));
+      categories.add(Category(Icons.print, categoryNames[i], Color(0xFF485D67), Colors.white));
     }
 
     return Scaffold(
@@ -47,13 +47,8 @@ class CategoryActivity extends StatelessWidget {
       color: Colors.blueGrey,
       padding: EdgeInsets.all(12),
       child: ListView(
-        children: <Widget>[
-          categories.map((category) => CategoryCard(course: quote, delete: (){
-            setState(() {
-              quotes.remove(quote);
-            });
-          })).toList(),
-        ],
+        children:
+          categories.map((category) => CategoryCard(category: category)).toList(),
       ),
     );
   }
