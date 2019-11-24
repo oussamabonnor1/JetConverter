@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:unit_convertor/category.dart';
+import 'package:unit_convertor/converter_controller.dart';
 
 class CategoryCard extends StatefulWidget {
-
   Category category;
 
   CategoryCard({this.category});
@@ -15,34 +15,31 @@ class _CategoryCardState extends State<CategoryCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: widget.category.backgroundColor,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      child: Container(
-        height: 100,
-        padding: EdgeInsets.all(16),
-        child: InkWell(
-          highlightColor: Colors.amber,
-          borderRadius: BorderRadius.circular(10),
-          onTap: () {
-            print("I was tapped!");
-          },
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.all(8),
-                child: Icon(widget.category.icon, size: 60, color: widget.category.textColor),
-              ),
-              Center(
-                child: Text(
-                  widget.category.text,
-                  style: TextStyle(color: widget.category.textColor, fontSize: 24),
-                ),
-              ),
-            ],
+        color: widget.category.highlightColor,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListTile(
+            title: Text(
+              widget.category.text,
+              style: TextStyle(color: Colors.white),
+            ),
+            leading: Icon(
+              widget.category.icon,
+              size: 35,
+              color: Colors.white,
+            ),
+            trailing: Icon(
+              Icons.keyboard_arrow_right,
+              color: Colors.white,
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ConverterController()),
+              );
+            },
           ),
-        ),
-      ),
-    );
+        ));
   }
 }

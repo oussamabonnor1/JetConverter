@@ -4,37 +4,29 @@ import 'package:unit_convertor/category.dart';
 import 'package:unit_convertor/category_card.dart';
 
 class CategoryActivity extends StatelessWidget {
-  List categoryNames = <String>[
-    "Item 1",
-    "Item 2",
-    "Item 3",
-    "Item 4",
+
+  static Color backgroundColor = Color(0xFF141414);
+  static Color highlightColor = Color(0xFF474747);
+
+  List<Category> categories = [
+    Category(Icons.music_note, "Music note", backgroundColor, highlightColor, Colors.white),
+    Category(Icons.favorite, "Love", backgroundColor, highlightColor, Colors.white),
+    Category(Icons.directions_run, "Run", backgroundColor, highlightColor, Colors.white),
+    Category(Icons.book, "Book", backgroundColor, highlightColor, Colors.white),
+    Category(Icons.brush, "Bursh", backgroundColor, highlightColor, Colors.white),
   ];
-
-  List<Category> categories = [];
-
-  List<Color> categoryColors = <Color>[
-    Colors.amber,
-    Colors.redAccent,
-    Colors.greenAccent,
-    Colors.lightBlue,
-  ];
-
-  Color backgroundColor = Color(0xFF141414);
 
   @override
   Widget build(BuildContext context) {
-    for (int i = 0; i < 4; i++) {
-      categories.add(Category(Icons.print, categoryNames[i], Color(0xFF485D67), Colors.white));
-    }
 
     return Scaffold(
+      backgroundColor: backgroundColor,
       appBar: AppBar(
         backgroundColor: backgroundColor,
         elevation: 0,
         centerTitle: true,
         title: Text(
-          "JetConverte",
+          "JetConverter",
           style: TextStyle(color: Colors.white),
         ),
       ),
@@ -43,13 +35,11 @@ class CategoryActivity extends StatelessWidget {
   }
 
   Widget categoryList() {
-    return Container(
-      color: Colors.blueGrey,
-      padding: EdgeInsets.all(12),
-      child: ListView(
-        children:
-          categories.map((category) => CategoryCard(category: category)).toList(),
-      ),
+    return ListView.builder(
+      itemCount: categories.length,
+      itemBuilder: (context, index){
+        return CategoryCard(category: categories[index],);
+      },
     );
   }
 }
