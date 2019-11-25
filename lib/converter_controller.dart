@@ -33,34 +33,45 @@ class _ConverterControllerState extends State<ConverterController> {
             style: TextStyle(color: Colors.white),
           )),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(16),
             child: Card(
               color: CategoryActivity.highlightColor,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
               child: Column(
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          widget.convertFrom,
-                          style: TextStyle(color: Colors.white, fontSize: 24),
-                        ),
-                        DropdownButton(
-                          value: 'One',
-                          items: <String>['One', 'Two', 'Free', 'Four']
-                              .map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
-                          onChanged: (String newValue) {},
-                        ),
-                      ],
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        widget.convertFrom,
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                      ),
+                      DropdownButton(
+                        value: 'One',
+                        items: <String>['One', 'Two', 'Three', 'Four']
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(
+                              value,
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          );
+                        }).toList(),
+                        onChanged: (String newValue) {},
+                      ),
+                    ],
                   ),
+                  TextField(
+                    keyboardType: TextInputType.number,
+                    cursorColor: Colors.white,
+                    style: TextStyle( color: Colors.white, fontSize: 24),
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: "Enter a value",
+                      hintStyle: TextStyle( color: Colors.white, fontSize: 24),
+                    ),
+                  )
                 ],
               ),
             ),
