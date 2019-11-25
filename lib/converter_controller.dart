@@ -36,6 +36,9 @@ class _ConverterControllerState extends State<ConverterController> {
       body: Column(
         children: <Widget>[
           Expanded(
+              flex: 1,
+              child: SizedBox()),
+          Expanded(
             flex: 4,
             child: Padding(
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
@@ -177,7 +180,7 @@ class _ConverterControllerState extends State<ConverterController> {
             ),
           ),
           Expanded(
-            flex: 5,
+            flex: 4,
             child: Image(image: AssetImage("images/clouds.png"), fit: BoxFit.cover,),
           ),
         ],

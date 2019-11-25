@@ -42,7 +42,25 @@ class CategoryActivity extends StatelessWidget {
             style: TextStyle(color: Colors.white),
           ),
         ),
-        body: categoryList(),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Expanded(
+              flex: 9,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: categoryList(),
+              ),
+            ),
+            Expanded(
+              flex: 3,
+              child: Image(
+                image: AssetImage("images/clouds.png"),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

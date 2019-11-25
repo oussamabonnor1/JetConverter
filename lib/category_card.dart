@@ -29,11 +29,11 @@ class _CategoryCardState extends State<CategoryCard> {
             leading: Icon(
               widget.category.icon,
               size: 35,
-              color: CategoryActivity.accentColor,
+              color: Colors.white,
             ),
             trailing: Icon(
               Icons.keyboard_arrow_right,
-              color: CategoryActivity.accentColor,
+              color: Colors.white,
             ),
             onTap: () {
               Navigator.push(
