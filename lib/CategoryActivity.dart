@@ -10,22 +10,25 @@ void main() {
 }
 
 class CategoryActivity extends StatelessWidget {
-
   static Color backgroundColor = Color(0xFF141414);
   static Color highlightColor = Color(0xFF474747);
   static Color accentColor = Color(0xFFAB8F79);
 
   List<Category> categories = [
-    Category(Icons.music_note, "Music note", backgroundColor, highlightColor, Colors.white),
-    Category(Icons.favorite, "Love", backgroundColor, highlightColor, Colors.white),
-    Category(Icons.directions_run, "Run", backgroundColor, highlightColor, Colors.white),
-    Category(Icons.book, "Book", backgroundColor, highlightColor, Colors.white),
-    Category(Icons.brush, "Bursh", backgroundColor, highlightColor, Colors.white),
+    Category(Icons.music_note, "Music note", backgroundColor, highlightColor,
+        Colors.white, ["USD", "EUR"]),
+    Category(Icons.favorite, "Love", backgroundColor, highlightColor,
+        Colors.white, ["USD", "EUR"]),
+    Category(Icons.directions_run, "Run", backgroundColor, highlightColor,
+        Colors.white, ["USD", "EUR"]),
+    Category(Icons.book, "Book", backgroundColor, highlightColor, Colors.white,
+        ["USD", "EUR"]),
+    Category(Icons.brush, "Bursh", backgroundColor, highlightColor,
+        Colors.white, ["USD", "EUR"]),
   ];
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -47,8 +50,11 @@ class CategoryActivity extends StatelessWidget {
   Widget categoryList() {
     return ListView.builder(
       itemCount: categories.length,
-      itemBuilder: (context, index){
-        return CategoryCard(category: categories[index],title: categories[index].text,);
+      itemBuilder: (context, index) {
+        return CategoryCard(
+          category: categories[index],
+          title: categories[index].text,
+        );
       },
     );
   }

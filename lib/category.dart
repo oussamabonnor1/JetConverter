@@ -6,6 +6,7 @@ class Category{
   Color backgroundColor;
   Color highlightColor;
   Color textColor;
+  List<String> conversionOptions;
 
-  Category(this.icon, this.text, this.backgroundColor, this.highlightColor, this.textColor);
+  Category(this.icon, this.text, this.backgroundColor, this.highlightColor, this.textColor, this.conversionOptions);
 }

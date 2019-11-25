@@ -38,7 +38,7 @@ class _CategoryCardState extends State<CategoryCard> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ConverterController(widget.title,"USD","EUR")),
+                MaterialPageRoute(builder: (context) => ConverterController(widget.title, widget.category)),
               );
             },
           ),
